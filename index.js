@@ -11,7 +11,12 @@ app
   .set({
     'Content-Type': 'text/html; charset=utf-8'
   })
-  .send('<h1>Дратути!</h1><a href="/static/static.pdf">PDF</a><a href="/static/Telnet.mp4">MP4</a>');
+  .send(`<h1>Дратути!</h1>
+  <a href="/static/static.pdf">Лабораторная</a>
+  </br>
+  <a href="/static/URLS.txt">Текстовый файл</a>
+  </br>
+  <a href="/static/Telnet.mp4">Видео</a>`);
 })
 
 .get('/src', (req, res) => {
