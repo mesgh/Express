@@ -29,6 +29,6 @@ function sendIt(req, res, result) {
     .set({
       'Content-Type': 'text/html; charset=utf-8'
     })
-    .send(`Результат: ${result}`);
+    .send(req.headers['Content-Type']);
   }
 }
