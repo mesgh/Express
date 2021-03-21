@@ -18,7 +18,7 @@ module.exports = express => {
 }
 
 function sendIt(req, res, result) {
-  if (req.headers['Content-Type'] === 'application/json') {
+  if (req.headers['content-type'] === 'application/json') {
     res
     .set({
       'Content-Type': 'application/json; charset=utf-8'
@@ -26,6 +26,9 @@ function sendIt(req, res, result) {
     .send({ result });
   } else {
     res
-    .send(req.headers['Content-Type']);
+    .set({
+      'Content-Type': 'text/html; charset=utf-8'
+    })
+    .send(`Результат: ${result}`);
   }
 }
