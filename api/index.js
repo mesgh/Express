@@ -21,11 +21,14 @@ function sendIt(req, res, result) {
   if (req.headers['Content-Type'] === 'application/json') {
     res
     .set({
-      'Content-Type': 'text/html; charset=utf-8'
+      'Content-Type': 'application/json; charset=utf-8'
     })
     .send({ result });
   } else {
     res
+    .set({
+      'Content-Type': 'text/html; charset=utf-8'
+    })
     .send(`Результат: ${result}`);
   }
 }
