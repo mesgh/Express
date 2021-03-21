@@ -1,4 +1,4 @@
 const express = require('express');
 const app = express();
 
-app.listen(80, () => console.log(process.pid));
+app.listen(process.env.PORT || 80, () => console.log(process.pid));
