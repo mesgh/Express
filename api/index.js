@@ -17,7 +17,7 @@ module.exports = express => {
   return rtr;
 }
 
-function sendIt(req, req, result) {
+function sendIt(req, res, result) {
   if (req.headers['Content-Type'] === 'application/json') {
     res
     .set({
