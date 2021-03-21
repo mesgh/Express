@@ -5,16 +5,27 @@ module.exports = express => {
   .get((req, res) => {
     const {a, b} = req.params;
     const result = Number(a) + Number(b);
-    res
-    .send(`Сумма: ${result}`);
+    sendIt(req, res, result);
   });
   rtr
   .route('/mpy/:a/:b')
   .get((req, res) => {
     const {a, b} = req.params;
     const result = Number(a) * Number(b);
-    res
-    .send(`Сумма: ${result}`);
+    sendIt(req, res, result);
   });
   return rtr;
+}
+
+function sendIt(req, req, result) {
+  if (req.headers['Content-Type'] === 'application/json') {
+    res
+    .set({
+      'Content-Type': 'text/html; charset=utf-8'
+    })
+    .send({ result });
+  } else {
+    res
+    .send(`Результат: ${result}`);
+  }
 }

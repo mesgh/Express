@@ -4,7 +4,6 @@ const app = express();
 app
 .use('/api', require('./api')(express))
 .get('/', (req, res) => {
-  console.log(res);
   res
   .set({
     'Content-Type': 'text/html; charset=utf-8'
